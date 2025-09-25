@@ -2,3 +2,10 @@ black
 ruff
 pytest
 python-dotenv
+
+# git switch -c <new-branch-name> - when working on new branch
+# git push --set-upstream origin <your-branch-name>  (will push branch to remote repo)
+
+# after branch merge:
+# git branch -d <branch name im done with>         # deletes local branch
+# git push origin --delete <branch name>  # deletes remote branch
