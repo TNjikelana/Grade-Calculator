@@ -39,20 +39,20 @@ def enter_term_marks(weights, module_name, target_grade=50):
     return marks
 
 def calculate_current_and_required(marks, weights, target_grade=50):
-    if not isinstance(marks, list) or not isinstance(weights, list): #weight WILL be a list, but extracheck just in case
-        raise ValueError("Both marks and weights must be lists")
+    # if not isinstance(marks, list) or not isinstance(weights, list): #weight WILL be a list, but extracheck just in case
+    #     raise ValueError("Both marks and weights must be lists")
     
-    if len(marks) != len(weights):
-        raise ValueError(f"Marks list length ({len(marks)}) must match weights list length ({len(weights)})")#may casue issue for shorter lists, update later
+    # if len(marks) != len(weights):
+    #     raise ValueError(f"Marks list length ({len(marks)}) must match weights list length ({len(weights)})")#may casue issue for shorter lists, update later
     
-    if len(marks) < 1:
-        raise ValueError("Must have at least 1 term")
+    # if len(marks) < 1:
+    #     raise ValueError("Must have at least 1 term")
     
-    if not all(isinstance(mark, (int, float)) for mark in marks):
-        raise ValueError("All marks must be numeric")
+    # if not all(isinstance(mark, (int, float)) for mark in marks):
+    #     raise ValueError("All marks must be numeric")
     
-    if not all(isinstance(weight, (int, float)) for weight in weights):
-        raise ValueError("All weights must be numeric")
+    # if not all(isinstance(weight, (int, float)) for weight in weights):
+    #     raise ValueError("All weights must be numeric")
     
     # Normalize weights to percentages if they appear to be decimals (0-1 range)
     normalized_weights = []
