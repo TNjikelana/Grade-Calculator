@@ -32,11 +32,11 @@ def enter_term_marks(weights, module_name):
                     marks.append(mark)
                     break
                 else:
-                    print("⚠️ Please enter a value between 0 and 100.")
+                    print("Please enter a value between 0 and 100.")
             except ValueError:
-                print("⚠️ Haibo!! Invalid Input.\n Please enter an actual number dude number.\n")
+                print("Haibo!! Invalid Input.\n Please enter an actual number dude number.\n")
 
-    print(marks)  # testing whats in marks(remove later)
+    # print(marks)  # testing whats in marks(remove later)
     return marks
 
 def calculate_current_and_required(marks, weights, target_grade=50):
@@ -156,6 +156,21 @@ def welcome():
         "||========================================================================================================||\n")
     # return message
 
+def display_results(module_name, result):
+    print("\n==============================================")
+    print(f"📘 Module: {module_name}")
+    print("==============================================")
+    print(f"Current weighted mark: {result['current_weighted_mark']}%")
+    
+    if result['required_final_mark'] is not None:
+        print(f"Required average on remaining terms: {result['required_final_mark']}%")
+    
+    print(f"Status: {result['status']}")
+    print("----------------------------------------------")
+    print("Analysis:")
+    for key, value in result['analysis'].items():
+        print(f"  - {key.replace('_', ' ').capitalize()}: {value}")
+    print("==============================================\n")
 
 
 def module_selection():
@@ -176,7 +191,7 @@ def module_selection():
         if choice in module_names:
             return choice, module_names[choice]  # Return both choice and name
         else:
-            print("\n⚠️ Invalid choice. Please enter a number between 1 and 8.")
+            print("\nInvalid choice. Please enter a number between 1 and 8.")
 
 
 def main():
@@ -186,7 +201,8 @@ def main():
     marks = enter_term_marks(weights,module_name)
     # You can change the target_grade value if needed
     result = calculate_current_and_required(marks, weights, target_grade=50)
-    print(result)
+    display_results(module_name, result)
+
     
 
 
